@@ -36,4 +36,7 @@
   <!-- Launch rviz  -->
   <node name="rviz" pkg="rviz" type="rviz" respawn="false"/>
 
+  <!-- Ball Chaser -->
+  <node name="ball_chaser" pkg="ball_chaser" type="ball_chaser"/>
+
 </launch>
