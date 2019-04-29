@@ -241,21 +241,6 @@ ball_chaser_gencpp/fast:
 .PHONY : ball_chaser_gencpp/fast
 
 # Convenience name for target.
-ball_chaser/CMakeFiles/ball_chaser.dir/rule:
-	cd /home/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/ball_chaser.dir/rule
-.PHONY : ball_chaser/CMakeFiles/ball_chaser.dir/rule
-
-# Convenience name for target.
-ball_chaser: ball_chaser/CMakeFiles/ball_chaser.dir/rule
-
-.PHONY : ball_chaser
-
-# fast build rule for target.
-ball_chaser/fast:
-	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/ball_chaser.dir/build.make ball_chaser/CMakeFiles/ball_chaser.dir/build
-.PHONY : ball_chaser/fast
-
-# Convenience name for target.
 ball_chaser/CMakeFiles/ball_chaser_generate_messages_cpp.dir/rule:
 	cd /home/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/ball_chaser_generate_messages_cpp.dir/rule
 .PHONY : ball_chaser/CMakeFiles/ball_chaser_generate_messages_cpp.dir/rule
@@ -481,6 +466,21 @@ std_msgs_generate_messages_cpp/fast:
 .PHONY : std_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
+ball_chaser/CMakeFiles/drive_bot.dir/rule:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/drive_bot.dir/rule
+.PHONY : ball_chaser/CMakeFiles/drive_bot.dir/rule
+
+# Convenience name for target.
+drive_bot: ball_chaser/CMakeFiles/drive_bot.dir/rule
+
+.PHONY : drive_bot
+
+# fast build rule for target.
+drive_bot/fast:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/drive_bot.dir/build.make ball_chaser/CMakeFiles/drive_bot.dir/build
+.PHONY : drive_bot/fast
+
+# Convenience name for target.
 ball_chaser/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
 	cd /home/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
 .PHONY : ball_chaser/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
@@ -585,32 +585,32 @@ std_msgs_generate_messages_py/fast:
 	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/std_msgs_generate_messages_py.dir/build.make ball_chaser/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
 
-src/ball_chaser.o: src/ball_chaser.cpp.o
+src/drive_bot.o: src/drive_bot.cpp.o
 
-.PHONY : src/ball_chaser.o
+.PHONY : src/drive_bot.o
 
 # target to build an object file
-src/ball_chaser.cpp.o:
-	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/ball_chaser.dir/build.make ball_chaser/CMakeFiles/ball_chaser.dir/src/ball_chaser.cpp.o
-.PHONY : src/ball_chaser.cpp.o
+src/drive_bot.cpp.o:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/drive_bot.dir/build.make ball_chaser/CMakeFiles/drive_bot.dir/src/drive_bot.cpp.o
+.PHONY : src/drive_bot.cpp.o
 
-src/ball_chaser.i: src/ball_chaser.cpp.i
+src/drive_bot.i: src/drive_bot.cpp.i
 
-.PHONY : src/ball_chaser.i
+.PHONY : src/drive_bot.i
 
 # target to preprocess a source file
-src/ball_chaser.cpp.i:
-	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/ball_chaser.dir/build.make ball_chaser/CMakeFiles/ball_chaser.dir/src/ball_chaser.cpp.i
-.PHONY : src/ball_chaser.cpp.i
+src/drive_bot.cpp.i:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/drive_bot.dir/build.make ball_chaser/CMakeFiles/drive_bot.dir/src/drive_bot.cpp.i
+.PHONY : src/drive_bot.cpp.i
 
-src/ball_chaser.s: src/ball_chaser.cpp.s
+src/drive_bot.s: src/drive_bot.cpp.s
 
-.PHONY : src/ball_chaser.s
+.PHONY : src/drive_bot.s
 
 # target to generate assembly for a file
-src/ball_chaser.cpp.s:
-	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/ball_chaser.dir/build.make ball_chaser/CMakeFiles/ball_chaser.dir/src/ball_chaser.cpp.s
-.PHONY : src/ball_chaser.cpp.s
+src/drive_bot.cpp.s:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/drive_bot.dir/build.make ball_chaser/CMakeFiles/drive_bot.dir/src/drive_bot.cpp.s
+.PHONY : src/drive_bot.cpp.s
 
 # Help Target
 help:
@@ -626,7 +626,6 @@ help:
 	@echo "... ball_chaser_gennodejs"
 	@echo "... ball_chaser_generate_messages_eus"
 	@echo "... ball_chaser_gencpp"
-	@echo "... ball_chaser"
 	@echo "... ball_chaser_generate_messages_cpp"
 	@echo "... test"
 	@echo "... _ball_chaser_generate_messages_check_deps_DriveToTarget"
@@ -646,6 +645,7 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... drive_bot"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_eus"
@@ -653,9 +653,9 @@ help:
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
-	@echo "... src/ball_chaser.o"
-	@echo "... src/ball_chaser.i"
-	@echo "... src/ball_chaser.s"
+	@echo "... src/drive_bot.o"
+	@echo "... src/drive_bot.i"
+	@echo "... src/drive_bot.s"
 .PHONY : help
 
 

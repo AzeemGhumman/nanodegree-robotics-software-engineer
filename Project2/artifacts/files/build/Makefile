@@ -361,19 +361,6 @@ ball_chaser_gencpp/fast:
 .PHONY : ball_chaser_gencpp/fast
 
 #=============================================================================
-# Target rules for targets named ball_chaser
-
-# Build rule for target.
-ball_chaser: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ball_chaser
-.PHONY : ball_chaser
-
-# fast build rule for target.
-ball_chaser/fast:
-	$(MAKE) -f ball_chaser/CMakeFiles/ball_chaser.dir/build.make ball_chaser/CMakeFiles/ball_chaser.dir/build
-.PHONY : ball_chaser/fast
-
-#=============================================================================
 # Target rules for targets named ball_chaser_generate_messages_cpp
 
 # Build rule for target.
@@ -569,6 +556,19 @@ std_msgs_generate_messages_cpp/fast:
 .PHONY : std_msgs_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named drive_bot
+
+# Build rule for target.
+drive_bot: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 drive_bot
+.PHONY : drive_bot
+
+# fast build rule for target.
+drive_bot/fast:
+	$(MAKE) -f ball_chaser/CMakeFiles/drive_bot.dir/build.make ball_chaser/CMakeFiles/drive_bot.dir/build
+.PHONY : drive_bot/fast
+
+#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_nodejs
 
 # Build rule for target.
@@ -687,7 +687,6 @@ help:
 	@echo "... ball_chaser_gennodejs"
 	@echo "... ball_chaser_generate_messages_eus"
 	@echo "... ball_chaser_gencpp"
-	@echo "... ball_chaser"
 	@echo "... ball_chaser_generate_messages_cpp"
 	@echo "... _ball_chaser_generate_messages_check_deps_DriveToTarget"
 	@echo "... ball_chaser_generate_messages_nodejs"
@@ -703,6 +702,7 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... drive_bot"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_eus"

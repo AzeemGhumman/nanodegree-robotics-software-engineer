@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ball_chaser.dir/src/ball_chaser.cpp.o"
+  "CMakeFiles/ball_chaser.dir/src/drive_bot.cpp.o"
   "/home/workspace/catkin_ws/devel/lib/ball_chaser/ball_chaser.pdb"
   "/home/workspace/catkin_ws/devel/lib/ball_chaser/ball_chaser"
 )
