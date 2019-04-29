@@ -46,6 +46,7 @@
 /home/workspace/catkin_ws/build/ball_chaser/CMakeFiles/ball_chaser_gencpp.dir
 /home/workspace/catkin_ws/build/ball_chaser/CMakeFiles/ball_chaser_generate_messages_cpp.dir
 /home/workspace/catkin_ws/build/ball_chaser/CMakeFiles/test.dir
+/home/workspace/catkin_ws/build/ball_chaser/CMakeFiles/process_image.dir
 /home/workspace/catkin_ws/build/ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir
 /home/workspace/catkin_ws/build/ball_chaser/CMakeFiles/list_install_components.dir
 /home/workspace/catkin_ws/build/ball_chaser/CMakeFiles/ball_chaser_generate_messages_nodejs.dir

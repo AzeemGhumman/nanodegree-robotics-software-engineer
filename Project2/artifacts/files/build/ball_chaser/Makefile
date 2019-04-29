@@ -256,6 +256,21 @@ ball_chaser_generate_messages_cpp/fast:
 .PHONY : ball_chaser_generate_messages_cpp/fast
 
 # Convenience name for target.
+ball_chaser/CMakeFiles/process_image.dir/rule:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/process_image.dir/rule
+.PHONY : ball_chaser/CMakeFiles/process_image.dir/rule
+
+# Convenience name for target.
+process_image: ball_chaser/CMakeFiles/process_image.dir/rule
+
+.PHONY : process_image
+
+# fast build rule for target.
+process_image/fast:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/process_image.dir/build.make ball_chaser/CMakeFiles/process_image.dir/build
+.PHONY : process_image/fast
+
+# Convenience name for target.
 ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/rule:
 	cd /home/workspace/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/rule
 .PHONY : ball_chaser/CMakeFiles/_ball_chaser_generate_messages_check_deps_DriveToTarget.dir/rule
@@ -612,6 +627,33 @@ src/drive_bot.cpp.s:
 	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/drive_bot.dir/build.make ball_chaser/CMakeFiles/drive_bot.dir/src/drive_bot.cpp.s
 .PHONY : src/drive_bot.cpp.s
 
+src/process_image.o: src/process_image.cpp.o
+
+.PHONY : src/process_image.o
+
+# target to build an object file
+src/process_image.cpp.o:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/process_image.dir/build.make ball_chaser/CMakeFiles/process_image.dir/src/process_image.cpp.o
+.PHONY : src/process_image.cpp.o
+
+src/process_image.i: src/process_image.cpp.i
+
+.PHONY : src/process_image.i
+
+# target to preprocess a source file
+src/process_image.cpp.i:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/process_image.dir/build.make ball_chaser/CMakeFiles/process_image.dir/src/process_image.cpp.i
+.PHONY : src/process_image.cpp.i
+
+src/process_image.s: src/process_image.cpp.s
+
+.PHONY : src/process_image.s
+
+# target to generate assembly for a file
+src/process_image.cpp.s:
+	cd /home/workspace/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/process_image.dir/build.make ball_chaser/CMakeFiles/process_image.dir/src/process_image.cpp.s
+.PHONY : src/process_image.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -628,6 +670,7 @@ help:
 	@echo "... ball_chaser_gencpp"
 	@echo "... ball_chaser_generate_messages_cpp"
 	@echo "... test"
+	@echo "... process_image"
 	@echo "... _ball_chaser_generate_messages_check_deps_DriveToTarget"
 	@echo "... list_install_components"
 	@echo "... ball_chaser_generate_messages_nodejs"
@@ -656,6 +699,9 @@ help:
 	@echo "... src/drive_bot.o"
 	@echo "... src/drive_bot.i"
 	@echo "... src/drive_bot.s"
+	@echo "... src/process_image.o"
+	@echo "... src/process_image.i"
+	@echo "... src/process_image.s"
 .PHONY : help
 
 
