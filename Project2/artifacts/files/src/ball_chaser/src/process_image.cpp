@@ -36,26 +36,24 @@ void process_image_callback(const sensor_msgs::Image img)
 	    is_ball_found = true;
 	    int row_found = i % img.step;
 	    if (row_found < img.step / 3) {
-		// Turn Left
-		lin_x = 0.0;
-    		ang_z = 0.2;
+            // Turn Left
+            lin_x = 0.0;
+            ang_z = 0.2;
 	    }
 	    else if (row_found > img.step * 2 / 3) {
-		// Turn Right
-		lin_x = 0.0;
-    		ang_z = -0.2;
+            // Turn Right
+            lin_x = 0.0;
+            ang_z = -0.2;
 	    }
 	    else {
-		// Move Forward
-		lin_x = 0.5;
+            // Move Forward
+            lin_x = 0.5;
     		ang_z = 0.0;
 	    }
-	    break;
+	        break;
         }
     }	
-
     drive_robot(lin_x, ang_z);
-
 }
 
 int main(int argc, char** argv)
