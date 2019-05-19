@@ -58,4 +58,7 @@ add_executable(process_image src/process_image.cpp)
 target_link_libraries(drive_bot ${catkin_LIBRARIES})
 target_link_libraries(process_image ${catkin_LIBRARIES})
 
+add_dependencies(drive_bot ball_chaser_generate_messages_cpp)
+add_dependencies(process_image ball_chaser_generate_messages_cpp)
+
 

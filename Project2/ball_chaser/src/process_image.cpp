@@ -31,8 +31,8 @@ void process_image_callback(const sensor_msgs::Image img)
     bool is_ball_found = false;
     float lin_x = 0;
     float ang_z = 0;
-    for (int i = 0; i < img.height * img.step; i ++) {
-	if (img.data[i] == white_pixel) {
+    for (int i = 0; i < img.height * img.step; i += 3) {
+	if (img.data[i] == white_pixel && img.data[i + 1] == white_pixel && img.data[i + 2] == white_pixel) {
 	    is_ball_found = true;
 	    int row_found = i % img.step;
 	    if (row_found < img.step / 3) {
