@@ -4,9 +4,9 @@
   <!-- Arguments for launch file with defaults provided -->
   <arg name="database_path"     default="rtabmap.db"/>
  
-  <arg name="rgb_topic"   default="/camera/rgb/image_raw"/>
-  <arg name="depth_topic" default="/camera/depth/image_raw"/>
-  <arg name="camera_info_topic" default="/camera/rgb/camera_info"/>  
+  <arg name="rgb_topic"   default="/my_robot/camera/rgb/image_raw"/>
+  <arg name="depth_topic" default="/my_robot/camera/depth/image_raw"/>
+  <arg name="camera_info_topic" default="/my_robot/camera/rgb/camera_info"/>  
 
 
   <!-- Mapping Node -->
@@ -21,10 +21,12 @@
       <param name="subscribe_scan"      type="bool"   value="true"/>
 
       <!-- RTAB-Map Inputs -->
-      <remap from="/scan" to="/my_robot/laser/scan"/>
+      <remap from="scan" to="/my_robot/laser/scan"/>
       <remap from="rgb/image" to="$(arg rgb_topic)"/>
       <remap from="depth/image" to="$(arg depth_topic)"/>
       <remap from="rgb/camera_info" to="$(arg camera_info_topic)"/>
+
+      <param name="queue_size" type="int" value="10" />
 
       <!-- RTAB-Map Output -->
       <remap from="grid_map" to="/map"/>

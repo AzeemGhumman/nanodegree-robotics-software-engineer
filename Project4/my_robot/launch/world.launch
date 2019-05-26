@@ -14,7 +14,7 @@
   <include file="$(find my_robot)/launch/robot_description.launch"/>
 
   <!-- World File -->
-  <arg name="world_file" default="$(find my_robot)/worlds/my_dream_house.world"/>
+  <arg name="world_file" default="$(find my_robot)/worlds/my_dream_house_with_objects.world"/>
 
   <!-- Launch Gazebo World -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -37,8 +37,10 @@
   <node name="rviz" pkg="rviz" type="rviz" respawn="false"/>
 
   <!-- Ball Chaser -->
+  <!--
   <node name="drive_bot" pkg="ball_chaser" type="drive_bot" output="screen"/>
   <node name="process_image" pkg="ball_chaser" type="process_image" output="screen"/>
+  -->
 
 
 </launch>

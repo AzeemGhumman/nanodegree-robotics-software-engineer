@@ -19,7 +19,7 @@
       <publishWheelJointState>false</publishWheelJointState>
       <rosDebugLevel>na</rosDebugLevel>
       <wheelAcceleration>0</wheelAcceleration>
-      <wheelTorque>5</wheelTorque>
+      <wheelTorque>3</wheelTorque>
       <odometrySource>world</odometrySource>
       <publishTf>1</publishTf>
       <publishOdomTF>true</publishOdomTF>
@@ -86,11 +86,11 @@
             <updateRate>10.0</updateRate>
             <cameraName>camera</cameraName>
             <frameName>camera_link_optical</frameName>                   
-            <imageTopicName>/my_robot/camera/rgb/image_raw</imageTopicName>
-            <depthImageTopicName>/my_robot/camera/depth/image_raw</depthImageTopicName>
+            <imageTopicName>rgb/image_raw</imageTopicName>
+            <depthImageTopicName>depth/image_raw</depthImageTopicName>
             <pointCloudTopicName>depth/points</pointCloudTopicName>
             <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>              
-            <depthImageCameraInfoTopicName>/my_robot/camera/rgb/camera_info</depthImageCameraInfoTopicName>            
+            <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>            
             <pointCloudCutoff>0.4</pointCloudCutoff>                
                 <hackBaseline>0.07</hackBaseline>
                 <distortionK1>0.0</distortionK1>
