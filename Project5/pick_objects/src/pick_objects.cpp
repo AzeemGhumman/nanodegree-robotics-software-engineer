@@ -17,22 +17,45 @@ int main(int argc, char** argv){
 
   move_base_msgs::MoveBaseGoal goal;
 
-  //we'll send a goal to the robot to move 1 meter forward
   goal.target_pose.header.frame_id = "map";
   goal.target_pose.header.stamp = ros::Time::now();
 
-  goal.target_pose.pose.position.x = 1.0;
+  // Request robot to move to Pickup location
+  goal.target_pose.pose.position.x = 7.5;
+  goal.target_pose.pose.position.y = 10.0;
   goal.target_pose.pose.orientation.w = 1.0;
 
-  ROS_INFO("Sending goal");
+  ROS_INFO("Robot is travelling to the pickup zone");
   ac.sendGoal(goal);
-
   ac.waitForResult();
 
-  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-    ROS_INFO("Hooray, the base moved 1 meter forward");
-  else
-    ROS_INFO("The base failed to move forward 1 meter for some reason");
+  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
+
+    // Wait for 5 seconds
+    ros::Duration(5).sleep();
+
+    // Request robot to move to Dropoff location
+    // goal.target_pose.pose.position.x = -10.0;
+    // goal.target_pose.pose.position.y = 6.0;
+    goal.target_pose.pose.position.x = 0.0;
+    goal.target_pose.pose.position.y = 0.0;
+    goal.target_pose.pose.orientation.w = 1.0;
+    
+    ROS_INFO("Robot is travelling to the dropoff zone");
+    ac.sendGoal(goal);
+    ac.waitForResult();
+    if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
+      // Robot reached dropoff zone
+    }
+    else {
+      ROS_INFO("Unable to get to the dropoff zone");
+    } 
+  }
+  else {
+    ROS_INFO("Unable to get to the pickup zone");
+  }
+
+
 
   return 0;
 }
