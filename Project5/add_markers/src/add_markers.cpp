@@ -1,5 +1,20 @@
 #include <ros/ros.h>
+#include <ros/console.h>
+#include <geometry_msgs/PoseWithCovarianceStamped.h>
 #include <visualization_msgs/Marker.h>
+
+double robot_x_, robot_y_;
+double DISTANCE_THRESHOLD = 0.01;
+double PICKUP_X = 7.5, PICKUP_Y = 10.0;
+double DROPOFF_X = -10.0, DROPOFF_Y = 6.0;
+int WAIT_TIME = 5;
+int current_wait_ = 0; 
+
+void robotPoseCallback(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& msg_amcl) {
+  robot_x_ = msg_amcl->pose.pose.position.x;
+  robot_y_ = msg_amcl->pose.pose.position.y;
+  // ROS_INFO("x: %f, y: %f", robot_x_, robot_y_);
+}
 
 int main( int argc, char** argv )
 {
@@ -48,42 +63,59 @@ int main( int argc, char** argv )
 
     marker.lifetime = ros::Duration();
 
+    // Subscribe to /amcl_pose
+    ros::Subscriber sub1 = n.subscribe("/amcl_pose", 1000, robotPoseCallback);
+
   while (ros::ok())
   {
 
+    // State transitions
+
     if (state == 0) {
-    marker.action = visualization_msgs::Marker::ADD;
-    marker.pose.position.x = 7.5;
-    marker.pose.position.y = 10.0;
-    }
-    else if (state == 1) {
-    marker.action = visualization_msgs::Marker::DELETE;
-    }
-    else if (state == 2) {
-    marker.action = visualization_msgs::Marker::ADD;
-    marker.pose.position.x = -10.0;
-    marker.pose.position.y = 6.0;
-    }
-    else {
-    // marker.action = visualization_msgs::Marker::DELETE;
-    }
+      // Calculate manhattan distance
+      double pickup_distance = abs(robot_x_ - PICKUP_X) + abs(robot_y_ - PICKUP_Y);
 
-    state += 1;
-
-    // Publish the marker
-    while (marker_pub.getNumSubscribers() < 1)
-    {
-      if (!ros::ok())
-      {
-        return 0;
+      if (pickup_distance > DISTANCE_THRESHOLD) {
+        marker.action = visualization_msgs::Marker::ADD;
+        marker.pose.position.x = PICKUP_X;
+        marker.pose.position.y = PICKUP_Y;
       }
-      ROS_WARN_ONCE("Please create a subscriber to the marker");
-      sleep(1);
+      else {
+	state = 1;
+	marker.action = visualization_msgs::Marker::DELETE;
+      }
     }
+
+    else if (state == 1) {
+      if (current_wait_ < WAIT_TIME) {
+	current_wait_ += 1;
+      }
+      else {
+	state = 2;
+      }
+    }
+
+    else if (state == 2) {
+      // Calculate manhattan distance
+      double dropoff_distance = abs(robot_x_ - DROPOFF_X) + abs(robot_y_ - DROPOFF_Y);
+
+      if (dropoff_distance > DISTANCE_THRESHOLD) {
+	marker.action = visualization_msgs::Marker::DELETE;
+      }
+      else {
+        marker.action = visualization_msgs::Marker::ADD;
+        marker.pose.position.x = DROPOFF_X;
+        marker.pose.position.y = DROPOFF_Y;
+      }      
+    }
+
+    // Publish the Marker
     marker_pub.publish(marker);
 
-    // r.sleep();
-    // Sleep for 5 seconds
-    sleep(5);
+    // Sleep for 1 seconds
+    sleep(1);
+
+    // Handle ROS communication events
+    ros::spinOnce();
   }
 }
